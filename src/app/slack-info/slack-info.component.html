@@ -1,1 +1,21 @@
-<p>slack-info works!</p>
+<form [formGroup]="slackInfoForm" (ngSubmit)="onSubmit(slackInfoForm.value)">
+
+  <div>
+    <label>Channel ID</label>
+    <input type="text" formControlName="channelId" />
+  </div>
+
+
+  <div>
+    <label>Time Stamp</label>
+    <input type="text" formControlName="ts" />
+  </div>
+
+  <div>
+    <label>Slack Token</label>
+    <input type="text" formControlName="slackToken" />
+  </div>
+
+  <button class="button" type="submit">Retrieve!</button>
+
+</form>

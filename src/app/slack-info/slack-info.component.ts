@@ -7,10 +7,18 @@ import { FormBuilder } from '@angular/forms';
   styleUrls: ['./slack-info.component.css']
 })
 export class SlackInfoComponent implements OnInit {
-
-  constructor() { }
-
+  slackInfoForm;
+  constructor(private formBuilder: FormBuilder) {
+    this.slackInfoForm = this.formBuilder.group({
+      channelId: '',
+      ts: '',
+      slackToken: '',
+    });
+  }
   ngOnInit() {
   }
 
+  onSubmit(slackInfo) {
+    console.log('your input ', slackInfo);
+  }
 }
