@@ -13,9 +13,15 @@
 
   <div>
     <label>Slack Token</label>
-    <input type="text" formControlName="slackToken" />
+    <input type="text" formControlName="token" />
   </div>
 
   <button class="button" type="submit">Retrieve!</button>
 
 </form>
+
+<div *ngIf="conversationReplies$ | async as conversationReplies">
+  <div *ngFor="let reply of conversationReplies.messages">
+    <p>Text: {{ reply.text }}</p>
+  </div>
+</div>

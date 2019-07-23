@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
+import { ConversationRepliesService } from '../conversation-replies.service';
 
 @Component({
   selector: 'app-slack-info',
@@ -8,11 +9,16 @@ import { FormBuilder } from '@angular/forms';
 })
 export class SlackInfoComponent implements OnInit {
   slackInfoForm;
-  constructor(private formBuilder: FormBuilder) {
+  conversationReplies$;
+
+  constructor(
+    private formBuilder: FormBuilder,
+    private conversationRepliesService: ConversationRepliesService
+  ) {
     this.slackInfoForm = this.formBuilder.group({
       channelId: '',
       ts: '',
-      slackToken: '',
+      token: '',
     });
   }
   ngOnInit() {
@@ -20,5 +26,10 @@ export class SlackInfoComponent implements OnInit {
 
   onSubmit(slackInfo) {
     console.log('your input ', slackInfo);
+    this.conversationReplies$ =
+      this.conversationRepliesService.getReplies(slackInfo);
+    this.conversationReplies$.subscribe({
+      next: x => console.log('Observer got a next value: ', x),
+    });
   }
 }
