@@ -6,3 +6,7 @@
 .slack-info-container > * {
   width: 100%;
 }
+
+.reply-text {
+  white-space: pre-wrap;
+}

@@ -20,8 +20,8 @@
 
 </form>
 
-<div *ngIf="conversationReplies$ | async as conversationReplies">
-  <div *ngFor="let reply of conversationReplies.messages">
-    <p>Text: {{ reply.text }}</p>
-  </div>
-</div>
+<mat-list role="list" *ngIf="conversationReplies$ | async as conversationReplies">
+  <mat-list-item role="listitem" *ngFor="let reply of conversationReplies.messages">
+    <p class="reply-text">{{ reply.text }}</p>
+  </mat-list-item>
+</mat-list>
