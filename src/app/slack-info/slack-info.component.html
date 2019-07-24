@@ -1,22 +1,22 @@
 <form [formGroup]="slackInfoForm" (ngSubmit)="onSubmit(slackInfoForm.value)">
 
-  <div>
-    <label>Channel ID</label>
-    <input type="text" formControlName="channelId" />
+  <div class="slack-info-container">
+
+    <mat-form-field>
+      <input matInput placeholder="Channel ID" formControlName="channelId" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Time Stamp" formControlName="ts" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Slack Token" formControlName="token" />
+    </mat-form-field>
+
+    <button mat-raised-button type="submit">Retrieve!</button>
+
   </div>
-
-
-  <div>
-    <label>Time Stamp</label>
-    <input type="text" formControlName="ts" />
-  </div>
-
-  <div>
-    <label>Slack Token</label>
-    <input type="text" formControlName="token" />
-  </div>
-
-  <button class="button" type="submit">Retrieve!</button>
 
 </form>
 

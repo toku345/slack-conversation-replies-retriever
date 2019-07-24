@@ -1,0 +1,8 @@
+.slack-info-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.slack-info-container > * {
+  width: 100%;
+}
